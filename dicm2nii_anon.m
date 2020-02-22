@@ -930,8 +930,11 @@ if isempty(name), [~, name] = fileparts(s.Filename); end
 name = strtrim(name);
 q = strsplit(name,{'(',')'});
 if numel(q)==1
+	name = strrep(q{1},'WIP ','WIP_');
 	name = strrep(q{1},'WIP_','');
+	name = strrep(q{1},'WIP ','');
 else
+	name = strrep(q{1},'WIP ','WIP_');
 	name = strrep(q{2},'WIP_','');
 end
 
